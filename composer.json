@@ -1,0 +1,11 @@
+{
+    "name": "phalcon/app",
+    "description": "Phalcon Test",
+    "require": {
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "phalcon/ide-stubs": "*",
+        "phalcon/devtools": "^4.0"
+    }
+}

@@ -1,1 +1,1 @@
-# weather-status-api
+# weather-status-app
