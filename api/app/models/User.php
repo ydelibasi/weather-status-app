@@ -55,6 +55,18 @@ class User extends \Phalcon\Mvc\Model
     protected $notify_token;
 
     /**
+     *
+     * @var string
+     */
+    protected $create_date;
+
+    /**
+     *
+     * @var string
+     */
+    protected $updated_at;
+
+    /**
      * Method to set the value of field id
      *
      * @param integer $id
@@ -159,6 +171,32 @@ class User extends \Phalcon\Mvc\Model
     }
 
     /**
+     * Method to set the value of field create_date
+     *
+     * @param string $create_date
+     * @return $this
+     */
+    public function setCreateDate($create_date)
+    {
+        $this->create_date = $create_date;
+
+        return $this;
+    }
+
+    /**
+     * Method to set the value of field updated_at
+     *
+     * @param string $updated_at
+     * @return $this
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    /**
      * Returns the value of field id
      *
      * @return integer
@@ -236,6 +274,26 @@ class User extends \Phalcon\Mvc\Model
     public function getNotifyToken()
     {
         return $this->notify_token;
+    }
+
+    /**
+     * Returns the value of field create_date
+     *
+     * @return string
+     */
+    public function getCreateDate()
+    {
+        return $this->create_date;
+    }
+
+    /**
+     * Returns the value of field updated_at
+     *
+     * @return string
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updated_at;
     }
 
     /**

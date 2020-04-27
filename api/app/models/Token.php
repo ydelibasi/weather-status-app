@@ -22,6 +22,12 @@ class Token extends \Phalcon\Mvc\Model
     protected $expire_at;
 
     /**
+     *
+     * @var string
+     */
+    protected $create_date;
+
+    /**
      * Method to set the value of field user_id
      *
      * @param integer $user_id
@@ -61,6 +67,19 @@ class Token extends \Phalcon\Mvc\Model
     }
 
     /**
+     * Method to set the value of field create_date
+     *
+     * @param string $create_date
+     * @return $this
+     */
+    public function setCreateDate($create_date)
+    {
+        $this->create_date = $create_date;
+
+        return $this;
+    }
+
+    /**
      * Returns the value of field user_id
      *
      * @return integer
@@ -88,6 +107,16 @@ class Token extends \Phalcon\Mvc\Model
     public function getExpireAt()
     {
         return $this->expire_at;
+    }
+
+    /**
+     * Returns the value of field create_date
+     *
+     * @return string
+     */
+    public function getCreateDate()
+    {
+        return $this->create_date;
     }
 
     /**
