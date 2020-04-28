@@ -32,7 +32,6 @@ class GiftCodeController extends ControllerBase
             ]
         ]);
 
-
         if (!$code) {
             $response->setStatusCode(404);
             $response->setJsonContent(

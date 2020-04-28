@@ -32,6 +32,8 @@ try {
      */
     include APP_PATH . '/config/loader.php';
 
+    require BASE_PATH . '/../vendor/autoload.php';
+
     /**
      * Starting the application
      * Assign service locator to the application

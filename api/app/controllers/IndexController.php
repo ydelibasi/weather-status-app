@@ -14,6 +14,20 @@ class IndexController extends ControllerBase
     {
         $email = $this->request->get('email');
         $password = $this->request->get('password');
+        $response = new Response();
+
+        if (empty($email) || empty($password)) {
+            $response->setStatusCode(400);
+            $response->setJsonContent(
+                array(
+                    'status' => 'ERROR',
+                    'msg'   => 'email/password required.'
+                )
+            );
+            $response->send();
+            die();
+        }
+
         $user = User::findFirst([
             'conditions'  => 'email = :email: AND ' .
                 'password = :pass:',
@@ -22,7 +36,6 @@ class IndexController extends ControllerBase
                 'pass' => md5($password),
             ]
         ]);
-        $response = new Response();
 
         /** @var $user User */
         if ($user) {
