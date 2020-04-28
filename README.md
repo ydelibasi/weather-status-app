@@ -11,6 +11,8 @@ Weather Status service API using Phalcon Framework
 - Hit the IP address (127.0.0.1:8080) with Postman
 
 ### Usage
+- Sample Crontab Line for sending daily weather status messages
+- 0 * * * * php api/app/cli.php notify weather-status 
 
 #### Requests
 The routes available are:
