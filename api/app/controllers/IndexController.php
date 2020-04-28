@@ -10,7 +10,8 @@ class IndexController extends ControllerBase
 
     }
 
-    public function login() {
+    public function login()
+    {
         $email = $this->request->get('email');
         $password = $this->request->get('password');
         $user = User::findFirst([

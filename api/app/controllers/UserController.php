@@ -30,14 +30,25 @@ class UserController extends ControllerBase
         $user->setTimezone($timezone);
         $user->setLanguage($language);
         $user->setNotifyToken($notify_token);
-        $result = $user->save();
+        $user_result = $user->save();
+        $subs_result = false;
 
+        if ($user_result) {
+            $subscription = new Subscription();
+            $subscription
+                ->setUserId($user->getId())
+                ->setServiceId(Helper::DEFAULT_SERVICE_ID)
+                ->setStatus(1)
+                ->setStartDate(date('Y-m-d H:i:s'))
+                ->setFoc(0);
+            $subs_result = $subscription->save();
+        }
 
         // Create a response
         $response = new Response();
 
         // Check if the insertion was successful
-        if ($result) {
+        if ($user_result && $subs_result) {
             $response->setStatusCode(201, "Created");
             $response->setJsonContent(
                 array(
@@ -62,6 +73,8 @@ class UserController extends ControllerBase
     public function update()
     {
         $application = $this->di->getShared('application');
+        /** @var User $current_user */
+        $current_user = $application->user;
 
         $email = $this->request->getPut('email');
         $password = $this->request->getPut('password');
@@ -70,9 +83,6 @@ class UserController extends ControllerBase
         $timezone = $this->request->get('timezone');
         $language = $this->request->get('language');
         $response = new Response();
-
-        /** @var User $current_user */
-        $current_user = $application->user;
 
         if ($email) {
             $user = User::findFirst([
