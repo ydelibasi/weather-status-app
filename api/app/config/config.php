@@ -22,6 +22,7 @@ return new \Phalcon\Config([
         'controllersDir' => APP_PATH . '/controllers/',
         'middlewaresDir' => APP_PATH . '/middlewares/',
         'migrationsDir'  => APP_PATH . '/migrations/',
+        'libraryDir'     => APP_PATH . '/library/',
         'viewsDir'       => APP_PATH . '/views/',
         'baseUri'        => '/',
     ]

@@ -12,7 +12,7 @@ $users = new MicroCollection();
 $users->setHandler(new UserController());
 $users->setPrefix('/user');
 $users->post('/register', 'register');
-$users->put('/{id}', 'update');
+$users->put('/update', 'update');
 $app->mount($users);
 
 $homepage = new MicroCollection();
@@ -36,7 +36,7 @@ $app->notFound(function () use($app) {
     $app->response->setContent('Url not found!');
     $app->response->setJsonContent(
         array(
-            'status' => 'Error',
+            'status' => 'ERROR',
             'msg'   => 'Page not found.'
         )
     );
