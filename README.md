@@ -5,6 +5,7 @@ Weather Status service API using Phalcon Framework
 ### Installation
 - Clone the project
 - docker-compose up
+- execute DB queries in db_queries.sql
 - docker exec -i -t weather-status-app /bin/bash
 - php composer.phar install
 - Hit the IP address (127.0.0.1:8080) with Postman
